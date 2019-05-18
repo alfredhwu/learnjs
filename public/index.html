@@ -9,6 +9,8 @@
     <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
     <script src='/vendor.js'></script>
     <script src='/app.js'></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="552422843856-e1cd065smp8iuvvju6c7cho42b4mn3lt.apps.googleusercontent.com"/>
     <style type="text/css" media="all">
       body { margin-top: 60px; }
       .templates { display: none; }
@@ -37,15 +39,24 @@
         background: #666;
       }
       .nav-container a { color: white; }
+      .nav-padding {
+        padding-top: 7px;
+        display: inline-block;
+      }
     </style>
   </head>
   <body>
     <div class='markup'>
       <div class="nav-container no-select fixed-top u-full-width">
-        <ul class="inline-list hover-links nav-list six column">
+        <ul class="inline-list hover-links nav-list six columns">
           <li><a href="#" class="text-lg">LearnJS</a></li>
           <li><a href="#problem-1">Start</a></li>
         </ul>
+        <div class="four columns signin-bar">
+          <span class="navbar-padding u-pull-right">
+            <span class="g-signin2" data-onsuccess="googleSignIn"></span>
+          </span>
+        </div>
       </div>
       <div class='view-container container'>
       </div>
@@ -79,7 +90,14 @@
         <li class="skip-btn">
           <a>Skip This Problem</a>
         </li>
-      </div>
+        <div class="profile-view">
+          <h3>Your Profile</h3>
+          <div class='email'></div>
+        </div>
+        <div class="profile-link navbar-padding-lg four columns">
+          <a href="#profile"></a>
+        </div>
+      </div><!-- end of templates part -->
     </div>
     <script type="text/javascript">
       $(window).ready(learnjs.appOnReady);
